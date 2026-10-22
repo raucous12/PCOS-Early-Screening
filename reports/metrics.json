@@ -1,0 +1,1471 @@
+{
+  "version": "1.0.0",
+  "created": "2026-10-15T12:55:57+00:00",
+  "selected_model": "logreg",
+  "selection_reason": "best LOSO AUC 0.782 (lightgbm); chose 'logreg' (0.782), the simplest model within 0.010",
+  "features": [
+    "age",
+    "bmi",
+    "overweight",
+    "irregular_cycle",
+    "weight_gain",
+    "excess_hair",
+    "acne",
+    "hair_loss",
+    "skin_darkening",
+    "conception_difficulty"
+  ],
+  "reference_source": "kerala",
+  "calibration": "none",
+  "calibration_comparison": {
+    "none": {
+      "n": 1135,
+      "prevalence": 0.3594713656387665,
+      "roc_auc": 0.8785264449658818,
+      "pr_auc": 0.8164708437669924,
+      "calibration_slope": 1.0219121683186252,
+      "calibration_intercept": 0.014498873171460747,
+      "brier": 0.13015261348502782,
+      "log_loss": 0.4131815011881334,
+      "ece": 0.03414359190100582,
+      "mean_predicted": 0.3589934885306397
+    },
+    "sigmoid": {
+      "n": 1135,
+      "prevalence": 0.3594713656387665,
+      "roc_auc": 0.8783882191115785,
+      "pr_auc": 0.815868201323067,
+      "calibration_slope": 1.0626560748074338,
+      "calibration_intercept": 0.03336452358809158,
+      "brier": 0.13028114860589576,
+      "log_loss": 0.41349073079814647,
+      "ece": 0.03723870830919734,
+      "mean_predicted": 0.3591021295738216
+    },
+    "isotonic": {
+      "n": 1135,
+      "prevalence": 0.3594713656387665,
+      "roc_auc": 0.8764867707743346,
+      "pr_auc": 0.8105307291290582,
+      "calibration_slope": 0.8523658880296555,
+      "calibration_intercept": -0.053768447538273985,
+      "brier": 0.13055006615309214,
+      "log_loss": 0.4252790275489647,
+      "ece": 0.025784623410640136,
+      "mean_predicted": 0.3578318529204384
+    }
+  },
+  "final_oof": {
+    "n": 1135,
+    "prevalence": 0.3594713656387665,
+    "roc_auc": 0.8785264449658818,
+    "pr_auc": 0.8164708437669924,
+    "calibration_slope": 1.0219121683186252,
+    "calibration_intercept": 0.014498873171460747,
+    "brier": 0.13015261348502782,
+    "log_loss": 0.4131815011881334,
+    "ece": 0.03414359190100582,
+    "mean_predicted": 0.3589934885306397,
+    "roc_auc_ci": [
+      0.8565133876796935,
+      0.8983908487741726
+    ]
+  },
+  "reliability": [
+    {
+      "mean_predicted": 0.032863846265647347,
+      "observed": 0.03508771929824561,
+      "n": 114
+    },
+    {
+      "mean_predicted": 0.05828054621735969,
+      "observed": 0.043859649122807015,
+      "n": 114
+    },
+    {
+      "mean_predicted": 0.08292466094365127,
+      "observed": 0.11403508771929824,
+      "n": 114
+    },
+    {
+      "mean_predicted": 0.1381871524289756,
+      "observed": 0.10526315789473684,
+      "n": 114
+    },
+    {
+      "mean_predicted": 0.20593425163083526,
+      "observed": 0.13157894736842105,
+      "n": 114
+    },
+    {
+      "mean_predicted": 0.28390288235006395,
+      "observed": 0.3185840707964602,
+      "n": 113
+    },
+    {
+      "mean_predicted": 0.4357794800582244,
+      "observed": 0.4778761061946903,
+      "n": 113
+    },
+    {
+      "mean_predicted": 0.6167286160615058,
+      "observed": 0.6460176991150443,
+      "n": 113
+    },
+    {
+      "mean_predicted": 0.8065308491006237,
+      "observed": 0.8407079646017699,
+      "n": 113
+    },
+    {
+      "mean_predicted": 0.9401015116226673,
+      "observed": 0.8938053097345132,
+      "n": 113
+    }
+  ],
+  "thresholds": {
+    "low": 0.198,
+    "high": 0.3203,
+    "low_sensitivity": 0.9019607843137255,
+    "low_specificity": 0.6176066024759285,
+    "high_sensitivity": 0.8014705882352942,
+    "high_specificity": 0.8005502063273727
+  },
+  "auc_vs_chosen": {
+    "random_forest": {
+      "diff": -0.01511044582895038,
+      "ci_low": -0.025724505758286775,
+      "ci_high": -0.00593823327130039,
+      "p_value": 0.004
+    },
+    "hist_gb": {
+      "diff": -0.00859697386519942,
+      "ci_low": -0.017518357067724005,
+      "ci_high": 0.00010459651535986984,
+      "p_value": 0.052
+    },
+    "lightgbm": {
+      "diff": -0.010451223130242604,
+      "ci_low": -0.01807235617768445,
+      "ci_high": -0.003100894759554413,
+      "p_value": 0.006
+    },
+    "xgboost": {
+      "diff": -0.01689389648569195,
+      "ci_low": -0.02602952976238632,
+      "ci_high": -0.008256297704776447,
+      "p_value": 0.0
+    },
+    "ensemble": {
+      "diff": -0.012747120856595795,
+      "ci_low": -0.01896871712921762,
+      "ci_high": -0.007028447555088005,
+      "p_value": 0.0
+    }
+  },
+  "models": {
+    "logreg": {
+      "cv": {
+        "fold_auc_mean": 0.8793803687114159,
+        "fold_auc_sd": 0.019982235993574453,
+        "fold_brier_mean": 0.130470783481756,
+        "pooled_oof": {
+          "n": 1135,
+          "prevalence": 0.3594713656387665,
+          "roc_auc": 0.8785264449658818,
+          "pr_auc": 0.8164708437669924,
+          "calibration_slope": 1.0219121683186252,
+          "calibration_intercept": 0.014498873171460747,
+          "brier": 0.13015261348502782,
+          "log_loss": 0.4131815011881334,
+          "ece": 0.03414359190100582,
+          "mean_predicted": 0.3589934885306397,
+          "roc_auc_ci": [
+            0.8565133876796935,
+            0.8983908487741726
+          ]
+        },
+        "per_source": {
+          "kerala": {
+            "n": 541,
+            "prevalence": 0.32717190388170053,
+            "roc_auc": 0.8713757993419011,
+            "pr_auc": 0.7960412335500902,
+            "calibration_slope": 1.1218079231681406,
+            "calibration_intercept": 0.0894814144664664,
+            "brier": 0.12499495634972758,
+            "log_loss": 0.4059895964677443,
+            "ece": 0.04902129546034658,
+            "mean_predicted": 0.3249281035066314
+          },
+          "survey_in_2018": {
+            "n": 161,
+            "prevalence": 0.8322981366459627,
+            "roc_auc": 0.6990049751243781,
+            "pr_auc": 0.9237050328498259,
+            "calibration_slope": 0.45585783972062766,
+            "calibration_intercept": 0.820956707996864,
+            "brier": 0.14793431195642212,
+            "log_loss": 0.45801734686534024,
+            "ece": 0.12023666306137637,
+            "mean_predicted": 0.8165603364069957
+          },
+          "survey_lifestyle": {
+            "n": 172,
+            "prevalence": 0.22093023255813954,
+            "roc_auc": 0.839159465828751,
+            "pr_auc": 0.68384941136471,
+            "calibration_slope": 1.713812656563981,
+            "calibration_intercept": 0.623293704750848,
+            "brier": 0.12267153170832731,
+            "log_loss": 0.39517591608722147,
+            "ece": 0.09060515310066783,
+            "mean_predicted": 0.22849838547656665
+          },
+          "survey_mumbai": {
+            "n": 261,
+            "prevalence": 0.2260536398467433,
+            "roc_auc": 0.8193488840409465,
+            "pr_auc": 0.5985212501041047,
+            "calibration_slope": 0.8597980164697296,
+            "calibration_intercept": -0.1673343861591346,
+            "brier": 0.13480466376048933,
+            "log_loss": 0.41229724807340956,
+            "ece": 0.048849619524184054,
+            "mean_predicted": 0.2333470077459491
+          }
+        }
+      },
+      "loso": {
+        "per_source": {
+          "kerala": {
+            "n": 541,
+            "prevalence": 0.32717190388170053,
+            "roc_auc": 0.8240050909542436,
+            "pr_auc": 0.7434497850419584,
+            "calibration_slope": 0.9245280432327175,
+            "calibration_intercept": -1.1649751423383057,
+            "brier": 0.19431558756276002,
+            "log_loss": 0.5782832867194735,
+            "ece": 0.1922140433136784,
+            "mean_predicted": 0.519385947195379,
+            "roc_auc_ci": [
+              0.7846716489724965,
+              0.8635271155398275
+            ]
+          },
+          "survey_in_2018": {
+            "n": 161,
+            "prevalence": 0.8322981366459627,
+            "roc_auc": 0.6909894969596462,
+            "pr_auc": 0.9179416597488483,
+            "calibration_slope": 0.38447563729869755,
+            "calibration_intercept": 1.2487582357226414,
+            "brier": 0.17794174703482554,
+            "log_loss": 0.5388256290142233,
+            "ece": 0.187566073148675,
+            "mean_predicted": 0.7046458672992454,
+            "roc_auc_ci": [
+              0.5833022388059701,
+              0.7874585406301824
+            ]
+          },
+          "survey_lifestyle": {
+            "n": 172,
+            "prevalence": 0.22093023255813954,
+            "roc_auc": 0.8072466614296936,
+            "pr_auc": 0.6318674528746565,
+            "calibration_slope": 1.8447021360139848,
+            "calibration_intercept": -1.3752788001099672,
+            "brier": 0.18622334579914043,
+            "log_loss": 0.5524740491628749,
+            "ece": 0.2295163305598412,
+            "mean_predicted": 0.44872042278905205,
+            "roc_auc_ci": [
+              0.7242709151610368,
+              0.8822712097407699
+            ]
+          },
+          "survey_mumbai": {
+            "n": 261,
+            "prevalence": 0.2260536398467433,
+            "roc_auc": 0.8070145997650613,
+            "pr_auc": 0.5665427751933573,
+            "calibration_slope": 0.812659487824417,
+            "calibration_intercept": -1.3959758181266788,
+            "brier": 0.19914724411142762,
+            "log_loss": 0.5808039380265463,
+            "ece": 0.21749200768405863,
+            "mean_predicted": 0.4435456475308019,
+            "roc_auc_ci": [
+              0.7489238966269509,
+              0.8582847373720424
+            ]
+          }
+        },
+        "mean_auc": 0.7823139622771611
+      }
+    },
+    "random_forest": {
+      "cv": {
+        "fold_auc_mean": 0.8934831716186102,
+        "fold_auc_sd": 0.01692287669603035,
+        "fold_brier_mean": 0.12292720644015344,
+        "pooled_oof": {
+          "n": 1135,
+          "prevalence": 0.3594713656387665,
+          "roc_auc": 0.8936368907948322,
+          "pr_auc": 0.830111875497334,
+          "calibration_slope": 1.1780354589107453,
+          "calibration_intercept": 0.08183389491056668,
+          "brier": 0.1215272457808258,
+          "log_loss": 0.3925924388440402,
+          "ece": 0.03807999457414975,
+          "mean_predicted": 0.3585800192972322,
+          "roc_auc_ci": [
+            0.8730674508455377,
+            0.9123959934730426
+          ]
+        },
+        "per_source": {
+          "kerala": {
+            "n": 541,
+            "prevalence": 0.32717190388170053,
+            "roc_auc": 0.871639659775253,
+            "pr_auc": 0.7923387541816006,
+            "calibration_slope": 1.172092402606721,
+            "calibration_intercept": 0.12809088458385862,
+            "brier": 0.12635691318682013,
+            "log_loss": 0.40985278831741545,
+            "ece": 0.05067769496317198,
+            "mean_predicted": 0.32252860480379686
+          },
+          "survey_in_2018": {
+            "n": 161,
+            "prevalence": 0.8322981366459627,
+            "roc_auc": 0.724709784411277,
+            "pr_auc": 0.919973033663392,
+            "calibration_slope": 0.9446329623167928,
+            "calibration_intercept": 0.29223470732642265,
+            "brier": 0.12239973649139893,
+            "log_loss": 0.4018811548574122,
+            "ece": 0.04975757135896855,
+            "mean_predicted": 0.8024145477031396
+          },
+          "survey_lifestyle": {
+            "n": 172,
+            "prevalence": 0.22093023255813954,
+            "roc_auc": 0.8356245090337784,
+            "pr_auc": 0.682282786281587,
+            "calibration_slope": 1.202445727392876,
+            "calibration_intercept": 0.16245967059960692,
+            "brier": 0.11727412921848934,
+            "log_loss": 0.37656190600817363,
+            "ece": 0.060536046963826244,
+            "mean_predicted": 0.22445399325105855
+          },
+          "survey_mumbai": {
+            "n": 261,
+            "prevalence": 0.2260536398467433,
+            "roc_auc": 0.8748951166303072,
+            "pr_auc": 0.6876951625185228,
+            "calibration_slope": 1.3110559916139422,
+            "calibration_intercept": 0.052046950136481585,
+            "brier": 0.11378094301330344,
+            "log_loss": 0.36164960093032444,
+            "ece": 0.048329001730349326,
+            "mean_predicted": 0.2479138608586854
+          }
+        }
+      },
+      "loso": {
+        "per_source": {
+          "kerala": {
+            "n": 541,
+            "prevalence": 0.32717190388170053,
+            "roc_auc": 0.6814506115353574,
+            "pr_auc": 0.5972718397714931,
+            "calibration_slope": 1.1439737552514153,
+            "calibration_intercept": -2.0473026213462715,
+            "brier": 0.3624674211073926,
+            "log_loss": 0.9535176093334543,
+            "ece": 0.4016341855235798,
+            "mean_predicted": 0.7288060894052806,
+            "roc_auc_ci": [
+              0.6281149112187249,
+              0.7293377879182964
+            ]
+          },
+          "survey_in_2018": {
+            "n": 161,
+            "prevalence": 0.8322981366459627,
+            "roc_auc": 0.6229961304588171,
+            "pr_auc": 0.8959731440774215,
+            "calibration_slope": 0.3966504257742142,
+            "calibration_intercept": 1.60236200802469,
+            "brier": 0.25257610199262875,
+            "log_loss": 0.7134279060315988,
+            "ece": 0.29878637691949844,
+            "mean_predicted": 0.5352254362160788,
+            "roc_auc_ci": [
+              0.5100780818131564,
+              0.7294154228855722
+            ]
+          },
+          "survey_lifestyle": {
+            "n": 172,
+            "prevalence": 0.22093023255813954,
+            "roc_auc": 0.7935978004713276,
+            "pr_auc": 0.602637996450055,
+            "calibration_slope": 1.9877651811963264,
+            "calibration_intercept": -1.7841478668349164,
+            "brier": 0.2222797696770142,
+            "log_loss": 0.6318101656199342,
+            "ece": 0.2847542646668471,
+            "mean_predicted": 0.5029197874107169,
+            "roc_auc_ci": [
+              0.6971401217596229,
+              0.874612136684996
+            ]
+          },
+          "survey_mumbai": {
+            "n": 261,
+            "prevalence": 0.2260536398467433,
+            "roc_auc": 0.804874979023326,
+            "pr_auc": 0.5786807178439834,
+            "calibration_slope": 0.8839140100246347,
+            "calibration_intercept": -1.655104644673138,
+            "brier": 0.22859787627381675,
+            "log_loss": 0.6551638644019451,
+            "ece": 0.2698757558847475,
+            "mean_predicted": 0.49592939573149075,
+            "roc_auc_ci": [
+              0.7441265312971975,
+              0.8616504447054876
+            ]
+          }
+        },
+        "mean_auc": 0.725729880372207
+      }
+    },
+    "hist_gb": {
+      "cv": {
+        "fold_auc_mean": 0.8863148318099034,
+        "fold_auc_sd": 0.017874174335492123,
+        "fold_brier_mean": 0.12576088418809628,
+        "pooled_oof": {
+          "n": 1135,
+          "prevalence": 0.3594713656387665,
+          "roc_auc": 0.8871234188310813,
+          "pr_auc": 0.8176557940185143,
+          "calibration_slope": 1.067062701091168,
+          "calibration_intercept": 0.04906896586269314,
+          "brier": 0.12397486508926947,
+          "log_loss": 0.3991414986625478,
+          "ece": 0.027810613189043987,
+          "mean_predicted": 0.356911419827111,
+          "roc_auc_ci": [
+            0.8656406768346954,
+            0.9069439949294711
+          ]
+        },
+        "per_source": {
+          "kerala": {
+            "n": 541,
+            "prevalence": 0.32717190388170053,
+            "roc_auc": 0.8650741913453779,
+            "pr_auc": 0.7816262611198049,
+            "calibration_slope": 1.0427677588674067,
+            "calibration_intercept": 0.06261520402565508,
+            "brier": 0.12811697527046897,
+            "log_loss": 0.41379750609708504,
+            "ece": 0.047666191751632364,
+            "mean_predicted": 0.32211022495423935
+          },
+          "survey_in_2018": {
+            "n": 161,
+            "prevalence": 0.8322981366459627,
+            "roc_auc": 0.6851851851851852,
+            "pr_auc": 0.9062724975567994,
+            "calibration_slope": 0.7361341265979,
+            "calibration_intercept": 0.551545699374555,
+            "brier": 0.12980201857504461,
+            "log_loss": 0.42301040227539594,
+            "ece": 0.06072858464242427,
+            "mean_predicted": 0.800959826938443
+          },
+          "survey_lifestyle": {
+            "n": 172,
+            "prevalence": 0.22093023255813954,
+            "roc_auc": 0.8503534956794974,
+            "pr_auc": 0.6532995287909914,
+            "calibration_slope": 1.24788577484446,
+            "calibration_intercept": 0.2089112375335771,
+            "brier": 0.11610952279322966,
+            "log_loss": 0.3710357861227525,
+            "ece": 0.08657114296535655,
+            "mean_predicted": 0.22420279100836157
+          },
+          "survey_mumbai": {
+            "n": 261,
+            "prevalence": 0.2260536398467433,
+            "roc_auc": 0.8524920288639033,
+            "pr_auc": 0.6425036855686842,
+            "calibration_slope": 1.0613567195675075,
+            "calibration_intercept": -0.08994822453871416,
+            "brier": 0.11697787488114736,
+            "log_loss": 0.3725606138084925,
+            "ece": 0.051084084349660955,
+            "mean_predicted": 0.24258780694636
+          }
+        }
+      },
+      "loso": {
+        "per_source": {
+          "kerala": {
+            "n": 541,
+            "prevalence": 0.32717190388170053,
+            "roc_auc": 0.7699214627180729,
+            "pr_auc": 0.6741512941011593,
+            "calibration_slope": 1.172558185581162,
+            "calibration_intercept": -2.039327061014804,
+            "brier": 0.3095249295457737,
+            "log_loss": 0.8437350721546063,
+            "ece": 0.35920080921916986,
+            "mean_predicted": 0.6863727131008703,
+            "roc_auc_ci": [
+              0.7257558825355435,
+              0.8086705314459551
+            ]
+          },
+          "survey_in_2018": {
+            "n": 161,
+            "prevalence": 0.8322981366459627,
+            "roc_auc": 0.6672194582642343,
+            "pr_auc": 0.9139852281586744,
+            "calibration_slope": 0.3190302582671674,
+            "calibration_intercept": 1.6654790282231908,
+            "brier": 0.28230051915397236,
+            "log_loss": 0.8410162907075891,
+            "ece": 0.30809125702600815,
+            "mean_predicted": 0.5312354796219839,
+            "roc_auc_ci": [
+              0.5566231343283582,
+              0.7703220011055831
+            ]
+          },
+          "survey_lifestyle": {
+            "n": 172,
+            "prevalence": 0.22093023255813954,
+            "roc_auc": 0.8548703849175177,
+            "pr_auc": 0.652944946789955,
+            "calibration_slope": 1.5961393908268138,
+            "calibration_intercept": -1.7134896529406292,
+            "brier": 0.1945441673544363,
+            "log_loss": 0.563873525114494,
+            "ece": 0.24980941566199227,
+            "mean_predicted": 0.4707396482201318,
+            "roc_auc_ci": [
+              0.7765931853888454,
+              0.9184136881382561
+            ]
+          },
+          "survey_mumbai": {
+            "n": 261,
+            "prevalence": 0.2260536398467433,
+            "roc_auc": 0.8173770766907199,
+            "pr_auc": 0.6085980800917747,
+            "calibration_slope": 1.1325910015053924,
+            "calibration_intercept": -2.6419255670494928,
+            "brier": 0.32147111024346575,
+            "log_loss": 0.9017775723750862,
+            "ece": 0.4209925184524961,
+            "mean_predicted": 0.6470461582992393,
+            "roc_auc_ci": [
+              0.7539425658667561,
+              0.8778905856687365
+            ]
+          }
+        },
+        "mean_auc": 0.7773470956476363
+      }
+    },
+    "lightgbm": {
+      "cv": {
+        "fold_auc_mean": 0.8884154605787451,
+        "fold_auc_sd": 0.017150456090812248,
+        "fold_brier_mean": 0.1247487300269805,
+        "pooled_oof": {
+          "n": 1135,
+          "prevalence": 0.3594713656387665,
+          "roc_auc": 0.8889776680961244,
+          "pr_auc": 0.8233749254056892,
+          "calibration_slope": 1.0502785930478782,
+          "calibration_intercept": 0.03384175051169066,
+          "brier": 0.12356720454599007,
+          "log_loss": 0.3967466424933272,
+          "ece": 0.02477304199038402,
+          "mean_predicted": 0.3579832700900806,
+          "roc_auc_ci": [
+            0.8684995077811043,
+            0.9088354134638724
+          ]
+        },
+        "per_source": {
+          "kerala": {
+            "n": 541,
+            "prevalence": 0.32717190388170053,
+            "roc_auc": 0.8676351896690879,
+            "pr_auc": 0.785761906288121,
+            "calibration_slope": 1.0114469982380392,
+            "calibration_intercept": 0.020806272488100516,
+            "brier": 0.12686912327434638,
+            "log_loss": 0.41010193949255264,
+            "ece": 0.052453656287431934,
+            "mean_predicted": 0.32531866386168895
+          },
+          "survey_in_2018": {
+            "n": 161,
+            "prevalence": 0.8322981366459627,
+            "roc_auc": 0.699281370923162,
+            "pr_auc": 0.9168185720887232,
+            "calibration_slope": 0.7345615636602247,
+            "calibration_intercept": 0.5311955340494782,
+            "brier": 0.13094627130525432,
+            "log_loss": 0.4210433024565412,
+            "ece": 0.06392922125027742,
+            "mean_predicted": 0.8038834380043842
+          },
+          "survey_lifestyle": {
+            "n": 172,
+            "prevalence": 0.22093023255813954,
+            "roc_auc": 0.8570306362922231,
+            "pr_auc": 0.6709504544619493,
+            "calibration_slope": 1.202067675544183,
+            "calibration_intercept": 0.17805191586704802,
+            "brier": 0.11589911491708682,
+            "log_loss": 0.3677287209817507,
+            "ece": 0.07234815416354139,
+            "mean_predicted": 0.223562283452025
+          },
+          "survey_mumbai": {
+            "n": 261,
+            "prevalence": 0.2260536398467433,
+            "roc_auc": 0.8560161100855849,
+            "pr_auc": 0.6655644502844675,
+            "calibration_slope": 1.0942495284751348,
+            "calibration_intercept": -0.03730964895291607,
+            "brier": 0.11722445985590979,
+            "log_loss": 0.3731991504218053,
+            "ece": 0.06476463106203832,
+            "mean_predicted": 0.23921711927438122
+          }
+        }
+      },
+      "loso": {
+        "per_source": {
+          "kerala": {
+            "n": 541,
+            "prevalence": 0.32717190388170053,
+            "roc_auc": 0.7704802259887007,
+            "pr_auc": 0.684874830176595,
+            "calibration_slope": 0.9570375477338825,
+            "calibration_intercept": -1.265332489967072,
+            "brier": 0.23379170018530795,
+            "log_loss": 0.6636382293831263,
+            "ece": 0.23760803835168376,
+            "mean_predicted": 0.5647799422333843,
+            "roc_auc_ci": [
+              0.7243083364375736,
+              0.8128657183212267
+            ]
+          },
+          "survey_in_2018": {
+            "n": 161,
+            "prevalence": 0.8322981366459627,
+            "roc_auc": 0.6709508015478165,
+            "pr_auc": 0.9129481740642197,
+            "calibration_slope": 0.3846502459319181,
+            "calibration_intercept": 1.7328498776676116,
+            "brier": 0.288398707776693,
+            "log_loss": 0.8361225616245002,
+            "ece": 0.3314731045310683,
+            "mean_predicted": 0.5008250321148945,
+            "roc_auc_ci": [
+              0.56267274737424,
+              0.7775221116639026
+            ]
+          },
+          "survey_lifestyle": {
+            "n": 172,
+            "prevalence": 0.22093023255813954,
+            "roc_auc": 0.8621366849960722,
+            "pr_auc": 0.678298019601924,
+            "calibration_slope": 1.8927482371823852,
+            "calibration_intercept": -0.3443347692818162,
+            "brier": 0.13280840912913094,
+            "log_loss": 0.42695088628617245,
+            "ece": 0.140665744992094,
+            "mean_predicted": 0.32723777729803233,
+            "roc_auc_ci": [
+              0.7887593283582089,
+              0.920770326001571
+            ]
+          },
+          "survey_mumbai": {
+            "n": 261,
+            "prevalence": 0.2260536398467433,
+            "roc_auc": 0.8258516529619063,
+            "pr_auc": 0.6216967707606007,
+            "calibration_slope": 1.1111191936952578,
+            "calibration_intercept": -2.039198487297531,
+            "brier": 0.24387881223283303,
+            "log_loss": 0.6967810221812928,
+            "ece": 0.31757918614483316,
+            "mean_predicted": 0.5436328259915766,
+            "roc_auc_ci": [
+              0.7683986407115289,
+              0.8819936230911227
+            ]
+          }
+        },
+        "mean_auc": 0.782354841373624
+      }
+    },
+    "xgboost": {
+      "cv": {
+        "fold_auc_mean": 0.8949806583804906,
+        "fold_auc_sd": 0.016387474077624108,
+        "fold_brier_mean": 0.12122606784105301,
+        "pooled_oof": {
+          "n": 1135,
+          "prevalence": 0.3594713656387665,
+          "roc_auc": 0.8954203414515738,
+          "pr_auc": 0.8313176953013851,
+          "calibration_slope": 1.0431231892158424,
+          "calibration_intercept": 0.018203132083737958,
+          "brier": 0.12017239659202664,
+          "log_loss": 0.38660175303232,
+          "ece": 0.029067985340604126,
+          "mean_predicted": 0.35952581689153523,
+          "roc_auc_ci": [
+            0.8755733001591283,
+            0.9147295661730993
+          ]
+        },
+        "per_source": {
+          "kerala": {
+            "n": 541,
+            "prevalence": 0.32717190388170053,
+            "roc_auc": 0.8689079282299621,
+            "pr_auc": 0.7888505757570738,
+            "calibration_slope": 1.0160838599383069,
+            "calibration_intercept": 0.008129548724948163,
+            "brier": 0.12632512704712992,
+            "log_loss": 0.40818969382592846,
+            "ece": 0.03997807372981154,
+            "mean_predicted": 0.3272950276708344
+          },
+          "survey_in_2018": {
+            "n": 161,
+            "prevalence": 0.8322981366459627,
+            "roc_auc": 0.7056384742951908,
+            "pr_auc": 0.9212156689835893,
+            "calibration_slope": 0.6782746806976084,
+            "calibration_intercept": 0.5654926166226705,
+            "brier": 0.13074625929468772,
+            "log_loss": 0.4211456705619334,
+            "ece": 0.07988056144358952,
+            "mean_predicted": 0.8091987017518983
+          },
+          "survey_lifestyle": {
+            "n": 172,
+            "prevalence": 0.22093023255813954,
+            "roc_auc": 0.8497643362136685,
+            "pr_auc": 0.6482793656987504,
+            "calibration_slope": 1.279674193912373,
+            "calibration_intercept": 0.21875304313554547,
+            "brier": 0.11649588346179904,
+            "log_loss": 0.37112057380261115,
+            "ece": 0.06810542444027093,
+            "mean_predicted": 0.22690173053334267
+          },
+          "survey_mumbai": {
+            "n": 261,
+            "prevalence": 0.2260536398467433,
+            "roc_auc": 0.8908373888236282,
+            "pr_auc": 0.7250345741342384,
+            "calibration_slope": 1.0775235878856044,
+            "calibration_intercept": -0.043505400017227615,
+            "brier": 0.10331929769187273,
+            "log_loss": 0.3307477918671857,
+            "ece": 0.02369005476040731,
+            "mean_predicted": 0.23634905581678337
+          }
+        }
+      },
+      "loso": {
+        "per_source": {
+          "kerala": {
+            "n": 541,
+            "prevalence": 0.32717190388170053,
+            "roc_auc": 0.7906189855342398,
+            "pr_auc": 0.6996477614942711,
+            "calibration_slope": 0.9828347382525269,
+            "calibration_intercept": -1.4518258679617917,
+            "brier": 0.24119209841653405,
+            "log_loss": 0.6868341256826228,
+            "ece": 0.2659485303622959,
+            "mean_predicted": 0.5931204342439963,
+            "roc_auc_ci": [
+              0.7475235922269821,
+              0.83165917768672
+            ]
+          },
+          "survey_in_2018": {
+            "n": 161,
+            "prevalence": 0.8322981366459627,
+            "roc_auc": 0.6792426755113323,
+            "pr_auc": 0.9174687066694373,
+            "calibration_slope": 0.3905145302939022,
+            "calibration_intercept": 1.629339016877533,
+            "brier": 0.2553236255609314,
+            "log_loss": 0.7465624495036396,
+            "ece": 0.29619593995837323,
+            "mean_predicted": 0.547574626976011,
+            "roc_auc_ci": [
+              0.5722567716970705,
+              0.7801513266998342
+            ]
+          },
+          "survey_lifestyle": {
+            "n": 172,
+            "prevalence": 0.22093023255813954,
+            "roc_auc": 0.8509426551453261,
+            "pr_auc": 0.7022910522538884,
+            "calibration_slope": 1.86196353200851,
+            "calibration_intercept": -4.4401149289979065,
+            "brier": 0.4256056985403848,
+            "log_loss": 1.1478457793821155,
+            "ece": 0.5325466981807421,
+            "mean_predicted": 0.7534769307388816,
+            "roc_auc_ci": [
+              0.7684431461115476,
+              0.9150996661429693
+            ]
+          },
+          "survey_mumbai": {
+            "n": 261,
+            "prevalence": 0.2260536398467433,
+            "roc_auc": 0.8073921798959557,
+            "pr_auc": 0.5885638466968218,
+            "calibration_slope": 0.8630992163982397,
+            "calibration_intercept": -2.011985769487339,
+            "brier": 0.26626953560610384,
+            "log_loss": 0.767282003981998,
+            "ece": 0.33173378355715466,
+            "mean_predicted": 0.557787423403898,
+            "roc_auc_ci": [
+              0.7435370867595233,
+              0.8688622252055714
+            ]
+          }
+        },
+        "mean_auc": 0.7820491240217134
+      }
+    },
+    "ensemble": {
+      "cv": {
+        "fold_auc_mean": 0.8919019451026168,
+        "fold_auc_sd": 0.017367283266036624,
+        "fold_brier_mean": 0.12323982904224895,
+        "pooled_oof": {
+          "n": 1135,
+          "prevalence": 0.3594713656387665,
+          "roc_auc": 0.8912735658224776,
+          "pr_auc": 0.8293348688995611,
+          "calibration_slope": 1.1405390547598426,
+          "calibration_intercept": 0.07030989365678927,
+          "brier": 0.1226870019427166,
+          "log_loss": 0.394384717394749,
+          "ece": 0.03173070711019747,
+          "mean_predicted": 0.35851892597265084,
+          "roc_auc_ci": [
+            0.8702639102408501,
+            0.9097865590527819
+          ]
+        },
+        "per_source": {
+          "kerala": {
+            "n": 541,
+            "prevalence": 0.32717190388170053,
+            "roc_auc": 0.8711585025144347,
+            "pr_auc": 0.7932566875784663,
+            "calibration_slope": 1.1367629899737788,
+            "calibration_intercept": 0.10043845324398626,
+            "brier": 0.12460067615740959,
+            "log_loss": 0.40471933833758456,
+            "ece": 0.052450615643820926,
+            "mean_predicted": 0.32425845739070575
+          },
+          "survey_in_2018": {
+            "n": 161,
+            "prevalence": 0.8322981366459627,
+            "roc_auc": 0.7106135986733002,
+            "pr_auc": 0.9222749754860394,
+            "calibration_slope": 0.7806179871626033,
+            "calibration_intercept": 0.4514495335691427,
+            "brier": 0.12976636321786816,
+            "log_loss": 0.41474244361721463,
+            "ece": 0.06967237669263632,
+            "mean_predicted": 0.8076194407048397
+          },
+          "survey_lifestyle": {
+            "n": 172,
+            "prevalence": 0.22093023255813954,
+            "roc_auc": 0.8511390416339356,
+            "pr_auc": 0.6749636091388728,
+            "calibration_slope": 1.4395858268325428,
+            "calibration_intercept": 0.3898989829235417,
+            "brier": 0.11634965209213734,
+            "log_loss": 0.37398348636691225,
+            "ece": 0.05771063016033798,
+            "mean_predicted": 0.22550488739321675
+          },
+          "survey_mumbai": {
+            "n": 261,
+            "prevalence": 0.2260536398467433,
+            "roc_auc": 0.8602114448733009,
+            "pr_auc": 0.6903599438572235,
+            "calibration_slope": 1.180144992918635,
+            "calibration_intercept": 0.01963433298597116,
+            "brier": 0.11852971940957997,
+            "log_loss": 0.3738498050763465,
+            "ece": 0.05680670828032646,
+            "mean_predicted": 0.2401593292930052
+          }
+        }
+      },
+      "loso": {
+        "per_source": {
+          "kerala": {
+            "n": 541,
+            "prevalence": 0.32717190388170053,
+            "roc_auc": 0.7935680139069969,
+            "pr_auc": 0.71335155422292,
+            "calibration_slope": 1.2334317155567125,
+            "calibration_intercept": -1.591521045559136,
+            "brier": 0.24490439468993905,
+            "log_loss": 0.6867393229028944,
+            "ece": 0.2771520890629807,
+            "mean_predicted": 0.6043239929446812,
+            "roc_auc_ci": [
+              0.7512991246042093,
+              0.8338637704103805
+            ]
+          },
+          "survey_in_2018": {
+            "n": 161,
+            "prevalence": 0.8322981366459627,
+            "roc_auc": 0.6636263128800441,
+            "pr_auc": 0.9122355344839209,
+            "calibration_slope": 0.4296093116325281,
+            "calibration_intercept": 1.524945146236089,
+            "brier": 0.22664718579697293,
+            "log_loss": 0.6561653884892851,
+            "ece": 0.25206602476922324,
+            "mean_predicted": 0.5802321118767395,
+            "roc_auc_ci": [
+              0.5556833886124931,
+              0.7681108347153123
+            ]
+          },
+          "survey_lifestyle": {
+            "n": 172,
+            "prevalence": 0.22093023255813954,
+            "roc_auc": 0.8404359780047131,
+            "pr_auc": 0.6609073637819899,
+            "calibration_slope": 2.15511611343874,
+            "calibration_intercept": -1.1831557087780773,
+            "brier": 0.17303478413743434,
+            "log_loss": 0.5247795150603204,
+            "ece": 0.2150348126506149,
+            "mean_predicted": 0.4262926624992671,
+            "roc_auc_ci": [
+              0.7565617635506677,
+              0.9079389238020423
+            ]
+          },
+          "survey_mumbai": {
+            "n": 261,
+            "prevalence": 0.2260536398467433,
+            "roc_auc": 0.815573082732002,
+            "pr_auc": 0.5980488676397945,
+            "calibration_slope": 0.987947115824608,
+            "calibration_intercept": -1.6978780809657827,
+            "brier": 0.21907135686221552,
+            "log_loss": 0.6317026970944601,
+            "ece": 0.2683156499045465,
+            "mean_predicted": 0.4943692897512898,
+            "roc_auc_ci": [
+              0.757032429937909,
+              0.8680609162611177
+            ]
+          }
+        },
+        "mean_auc": 0.7783008468809391
+      }
+    }
+  },
+  "importance": [
+    {
+      "feature": "irregular_cycle",
+      "label": "Irregular or missed periods",
+      "importance": 0.051446735847021016,
+      "sd": 0.006078303558842189
+    },
+    {
+      "feature": "excess_hair",
+      "label": "Excess hair on face, chest, belly or thighs",
+      "importance": 0.025375232623998704,
+      "sd": 0.004309470824954678
+    },
+    {
+      "feature": "weight_gain",
+      "label": "Rapid weight gain / hard to lose weight",
+      "importance": 0.023869413652668738,
+      "sd": 0.003738210921501138
+    },
+    {
+      "feature": "skin_darkening",
+      "label": "Dark, velvety skin patches (neck, armpits)",
+      "importance": 0.018868756237020196,
+      "sd": 0.00344262594479757
+    },
+    {
+      "feature": "acne",
+      "label": "Frequent acne / pimples",
+      "importance": 0.008767564797583388,
+      "sd": 0.0023953403160487125
+    },
+    {
+      "feature": "conception_difficulty",
+      "label": "Difficulty getting pregnant",
+      "importance": 0.0052426369447365895,
+      "sd": 0.0011484118865584933
+    },
+    {
+      "feature": "age",
+      "label": "Age",
+      "importance": 0.0011524159182242032,
+      "sd": 0.0009395671718286855
+    },
+    {
+      "feature": "hair_loss",
+      "label": "Scalp hair thinning or hair loss",
+      "importance": 0.00045184683226796586,
+      "sd": 0.0007739803623664007
+    },
+    {
+      "feature": "bmi",
+      "label": "Body-mass index (BMI)",
+      "importance": 0.0002164414596649511,
+      "sd": 0.000444646582432777
+    },
+    {
+      "feature": "overweight",
+      "label": "BMI in the overweight range (25 or more)",
+      "importance": -0.00013266310650810186,
+      "sd": 0.00047206058230423733
+    }
+  ],
+  "odds_ratios": [
+    {
+      "feature": "age",
+      "label": "Age",
+      "coef": -0.10767660863615497,
+      "odds_ratio": 0.8979179283859627,
+      "unit": "per 1 SD (7.9 years)"
+    },
+    {
+      "feature": "bmi",
+      "label": "Body-mass index (BMI)",
+      "coef": 0.05989971288045795,
+      "odds_ratio": 1.0617300633562174,
+      "unit": "per 1 SD (3.4 kg/m2)"
+    },
+    {
+      "feature": "overweight",
+      "label": "BMI in the overweight range (25 or more)",
+      "coef": 0.11714931180687047,
+      "odds_ratio": 1.1242872865249138,
+      "unit": "present vs absent"
+    },
+    {
+      "feature": "irregular_cycle",
+      "label": "Irregular or missed periods",
+      "coef": 1.4419123741885873,
+      "odds_ratio": 4.228775089568744,
+      "unit": "present vs absent"
+    },
+    {
+      "feature": "weight_gain",
+      "label": "Rapid weight gain / hard to lose weight",
+      "coef": 1.1235903058395122,
+      "odds_ratio": 3.07587774433684,
+      "unit": "present vs absent"
+    },
+    {
+      "feature": "excess_hair",
+      "label": "Excess hair on face, chest, belly or thighs",
+      "coef": 1.0584668855863992,
+      "odds_ratio": 2.8819492426891067,
+      "unit": "present vs absent"
+    },
+    {
+      "feature": "acne",
+      "label": "Frequent acne / pimples",
+      "coef": 0.6675602689532483,
+      "odds_ratio": 1.9494753185363136,
+      "unit": "present vs absent"
+    },
+    {
+      "feature": "hair_loss",
+      "label": "Scalp hair thinning or hair loss",
+      "coef": 0.1925596112528128,
+      "odds_ratio": 1.2123487711825414,
+      "unit": "present vs absent"
+    },
+    {
+      "feature": "skin_darkening",
+      "label": "Dark, velvety skin patches (neck, armpits)",
+      "coef": 1.0152367991738078,
+      "odds_ratio": 2.7600168897191857,
+      "unit": "present vs absent"
+    },
+    {
+      "feature": "conception_difficulty",
+      "label": "Difficulty getting pregnant",
+      "coef": 0.8697308414785738,
+      "odds_ratio": 2.3862684825818508,
+      "unit": "present vs absent"
+    }
+  ],
+  "final_params": {
+    "C": 1.3049731106449434,
+    "l1_ratio": 0.34817098930581036
+  },
+  "data": {
+    "n": 1135,
+    "prevalence": 0.3594713656387665,
+    "by_source": {
+      "kerala": {
+        "n": 541,
+        "prevalence": 0.32717190388170053
+      },
+      "survey_in_2018": {
+        "n": 161,
+        "prevalence": 0.8322981366459627
+      },
+      "survey_lifestyle": {
+        "n": 172,
+        "prevalence": 0.22093023255813954
+      },
+      "survey_mumbai": {
+        "n": 261,
+        "prevalence": 0.2260536398467433
+      }
+    },
+    "coverage": {
+      "kerala": {
+        "age": 1.0,
+        "bmi": 1.0,
+        "overweight": 1.0,
+        "irregular_cycle": 1.0,
+        "weight_gain": 1.0,
+        "excess_hair": 1.0,
+        "acne": 1.0,
+        "hair_loss": 1.0,
+        "skin_darkening": 1.0,
+        "fast_food": 1.0,
+        "regular_exercise": 1.0,
+        "conception_difficulty": 0.0,
+        "fatigue": 0.0,
+        "mood_swings": 0.0
+      },
+      "survey_in_2018": {
+        "age": 1.0,
+        "bmi": 0.0,
+        "overweight": 1.0,
+        "irregular_cycle": 1.0,
+        "weight_gain": 0.56,
+        "excess_hair": 1.0,
+        "acne": 1.0,
+        "hair_loss": 1.0,
+        "skin_darkening": 1.0,
+        "fast_food": 1.0,
+        "regular_exercise": 1.0,
+        "conception_difficulty": 1.0,
+        "fatigue": 1.0,
+        "mood_swings": 1.0
+      },
+      "survey_lifestyle": {
+        "age": 1.0,
+        "bmi": 1.0,
+        "overweight": 1.0,
+        "irregular_cycle": 1.0,
+        "weight_gain": 0.0,
+        "excess_hair": 0.99,
+        "acne": 0.0,
+        "hair_loss": 0.0,
+        "skin_darkening": 0.0,
+        "fast_food": 1.0,
+        "regular_exercise": 1.0,
+        "conception_difficulty": 0.99,
+        "fatigue": 0.0,
+        "mood_swings": 0.0
+      },
+      "survey_mumbai": {
+        "age": 1.0,
+        "bmi": 0.0,
+        "overweight": 0.47,
+        "irregular_cycle": 0.94,
+        "weight_gain": 1.0,
+        "excess_hair": 1.0,
+        "acne": 1.0,
+        "hair_loss": 1.0,
+        "skin_darkening": 1.0,
+        "fast_food": 1.0,
+        "regular_exercise": 1.0,
+        "conception_difficulty": 0.37,
+        "fatigue": 1.0,
+        "mood_swings": 1.0
+      }
+    }
+  },
+  "runtime_seconds": 1249.7,
+  "environment": {
+    "python": "3.13.0",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "cpu_count": 12
+  },
+  "config": {
+    "seed": 42,
+    "paths": {
+      "raw_dir": "data/raw",
+      "processed_dir": "data/processed",
+      "model_dir": "models",
+      "report_dir": "reports",
+      "docs_dir": "docs"
+    },
+    "sources": {
+      "kerala": {
+        "enabled": true,
+        "file": "kerala/PCOS_data_without_infertility.xlsx",
+        "sheet": "Full_new"
+      },
+      "survey_in_2018": {
+        "enabled": true,
+        "file": "survey_in_2018/dataset1.csv"
+      },
+      "survey_mumbai": {
+        "enabled": true,
+        "file": "survey_mumbai/allData.csv"
+      },
+      "survey_lifestyle": {
+        "enabled": true,
+        "file": "survey_lifestyle/pcos_raw.csv"
+      }
+    },
+    "reference_source": "kerala",
+    "features": {
+      "overweight_bmi": 25.0,
+      "fast_food_per_week": 3,
+      "exercise_days_per_week": 3,
+      "model_features": [
+        "age",
+        "bmi",
+        "overweight",
+        "irregular_cycle",
+        "weight_gain",
+        "excess_hair",
+        "acne",
+        "hair_loss",
+        "skin_darkening",
+        "conception_difficulty"
+      ]
+    },
+    "training": {
+      "outer_folds": 5,
+      "outer_repeats": 5,
+      "inner_folds": 3,
+      "n_trials": 25,
+      "n_jobs": -1,
+      "bootstrap": 1000,
+      "models": [
+        "logreg",
+        "random_forest",
+        "hist_gb",
+        "lightgbm",
+        "xgboost",
+        "ensemble"
+      ],
+      "simplicity_margin": 0.01,
+      "calibration": "auto"
+    },
+    "thresholds": {
+      "low_band_sensitivity": 0.9,
+      "high_band_specificity": 0.8
+    },
+    "app": {
+      "host": "127.0.0.1",
+      "port": 8000
+    },
+    "storage": {
+      "enabled": false,
+      "sqlite_path": "data/screenings.sqlite3"
+    }
+  },
+  "ablation": [
+    {
+      "variant": "all 14 questionnaire features",
+      "n_features": 14,
+      "model": "logreg",
+      "loso_auc": {
+        "kerala": 0.8140094368907927,
+        "survey_in_2018": 0.6312880044223328,
+        "survey_lifestyle": 0.8191280439905734,
+        "survey_mumbai": 0.7797029702970297
+      },
+      "loso_mean_auc": 0.7610321139001822
+    },
+    {
+      "variant": "all 14 questionnaire features",
+      "n_features": 14,
+      "model": "lightgbm",
+      "loso_auc": {
+        "kerala": 0.7068510585459737,
+        "survey_in_2018": 0.592039800995025,
+        "survey_lifestyle": 0.836311861743912,
+        "survey_mumbai": 0.7497063265648599
+      },
+      "loso_mean_auc": 0.7212272619624426
+    },
+    {
+      "variant": "without lifestyle (fast food, exercise)",
+      "n_features": 12,
+      "model": "logreg",
+      "loso_auc": {
+        "kerala": 0.820962935369715,
+        "survey_in_2018": 0.6734383637368713,
+        "survey_lifestyle": 0.8117635506677141,
+        "survey_mumbai": 0.7879677798288303
+      },
+      "loso_mean_auc": 0.7735331574007827
+    },
+    {
+      "variant": "without lifestyle (fast food, exercise)",
+      "n_features": 12,
+      "model": "lightgbm",
+      "loso_auc": {
+        "kerala": 0.7039951573849879,
+        "survey_in_2018": 0.6637645107794362,
+        "survey_lifestyle": 0.8533974862529458,
+        "survey_mumbai": 0.7590199697935894
+      },
+      "loso_mean_auc": 0.7450442810527398
+    },
+    {
+      "variant": "without lifestyle and wellbeing",
+      "n_features": 10,
+      "model": "logreg",
+      "loso_auc": {
+        "kerala": 0.8242534301856335,
+        "survey_in_2018": 0.6882255389718077,
+        "survey_lifestyle": 0.8103888452474469,
+        "survey_mumbai": 0.8076858533310958
+      },
+      "loso_mean_auc": 0.7826384169339959
+    },
+    {
+      "variant": "without lifestyle and wellbeing",
+      "n_features": 10,
+      "model": "lightgbm",
+      "loso_auc": {
+        "kerala": 0.7000838144905941,
+        "survey_in_2018": 0.6586511885019347,
+        "survey_lifestyle": 0.8642969363707778,
+        "survey_mumbai": 0.7910723275717401
+      },
+      "loso_mean_auc": 0.7535260667337617
+    },
+    {
+      "variant": "selected model features",
+      "n_features": 10,
+      "model": "logreg",
+      "loso_auc": {
+        "kerala": 0.8242534301856335,
+        "survey_in_2018": 0.6882255389718077,
+        "survey_lifestyle": 0.8103888452474469,
+        "survey_mumbai": 0.8076858533310958
+      },
+      "loso_mean_auc": 0.7826384169339959
+    },
+    {
+      "variant": "selected model features",
+      "n_features": 10,
+      "model": "lightgbm",
+      "loso_auc": {
+        "kerala": 0.7000838144905941,
+        "survey_in_2018": 0.6586511885019347,
+        "survey_lifestyle": 0.8642969363707778,
+        "survey_mumbai": 0.7910723275717401
+      },
+      "loso_mean_auc": 0.7535260667337617
+    }
+  ],
+  "clinical_benchmark": [
+    {
+      "feature_set": "questionnaire",
+      "n_features": 11,
+      "model": "logreg",
+      "auc_mean": 0.8834709477905824,
+      "auc_sd": 0.029680111999828035
+    },
+    {
+      "feature_set": "questionnaire",
+      "n_features": 11,
+      "model": "lightgbm",
+      "auc_mean": 0.8762575801502743,
+      "auc_sd": 0.032371419379048916
+    },
+    {
+      "feature_set": "questionnaire+anthropometry",
+      "n_features": 19,
+      "model": "logreg",
+      "auc_mean": 0.8808558140658598,
+      "auc_sd": 0.031549477168357425
+    },
+    {
+      "feature_set": "questionnaire+anthropometry",
+      "n_features": 19,
+      "model": "lightgbm",
+      "auc_mean": 0.8783218755284965,
+      "auc_sd": 0.030134031885742072
+    },
+    {
+      "feature_set": "questionnaire+anthropometry+labs+ultrasound",
+      "n_features": 35,
+      "model": "logreg",
+      "auc_mean": 0.9483140175400451,
+      "auc_sd": 0.023474246912758366
+    },
+    {
+      "feature_set": "questionnaire+anthropometry+labs+ultrasound",
+      "n_features": 35,
+      "model": "lightgbm",
+      "auc_mean": 0.956834287647073,
+      "auc_sd": 0.018882080055922332
+    }
+  ]
+}

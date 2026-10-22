@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PCOS Early Check</title>
+  <meta name="description" content="A free, private 4-minute questionnaire that screens for signs of PCOS/PCOD in teenage girls and women, with guideline-based explanations. Educational use only.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%237a3fb0'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23fff'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+<a class="sr-only" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="#home" aria-label="PCOS Early Check home">
+      <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="currentColor" opacity=".14"/><circle cx="16" cy="16" r="9" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="16" cy="16" r="3.5" fill="currentColor"/></svg>
+      PCOS Early Check
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#check" data-route="check">Check</a>
+      <a href="#learn" data-route="learn">Learn</a>
+      <a href="#model" data-route="model">About</a>
+    </nav>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch colour theme" title="Switch colour theme">
+      <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9Z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+
+  <!-- =========================================================== HOME -->
+  <section id="view-home" data-view="home">
+    <div class="hero">
+      <p class="pill">For teenage girls &amp; women · free · private · about 4 minutes</p>
+      <h1>Could your symptoms be PCOS?</h1>
+      <p class="lead">Polycystic ovary syndrome (PCOS, often called <strong>PCOD</strong>) is one of the most common hormone conditions in girls and women, and one of the most often missed. Answer a short questionnaire to see whether your symptoms match the signs doctors look for, and what to do next.</p>
+      <p><a class="btn btn-primary" href="#check">Start the check</a> <a class="btn btn-ghost" href="#learn">Learn about PCOS</a></p>
+    </div>
+    <div class="grid-3">
+      <div class="stat"><div class="num">1 in 10</div><div class="lbl">women of reproductive age has PCOS (WHO estimates 10–13%).</div></div>
+      <div class="stat"><div class="num">Up to 70%</div><div class="lbl">of women with PCOS have not been diagnosed (WHO).</div></div>
+      <div class="stat"><div class="num">&gt; 2 years</div><div class="lbl">wait for a diagnosis for 1 in 3 women; nearly half see 3 or more professionals.</div></div>
+    </div>
+    <div class="card">
+      <h2>How this check works</h2>
+      <div class="grid-3">
+        <div><h3>1 · Guideline check</h3><p class="muted">Your answers are compared with the 2023 International Evidence-based PCOS Guideline, including its rules for teenagers based on years since the first period.</p></div>
+        <div><h3>2 · Statistical score</h3><p class="muted">A machine-learning model trained on 1,135 women from 4 independent Indian clinical and survey datasets estimates how closely your answers match diagnosed cases.</p></div>
+        <div><h3>3 · Clear next steps</h3><p class="muted">You get a plain-language result, the reasons behind it, tests a doctor may suggest, and warning signs you should not ignore.</p></div>
+      </div>
+      <p class="notice"><strong>This is not a diagnosis.</strong> Only a doctor can diagnose PCOS. Your answers are used only to compute your result and are not stored unless you choose otherwise.</p>
+    </div>
+  </section>
+
+  <!-- =========================================================== CHECK -->
+  <section id="view-check" data-view="check" class="hidden">
+    <form id="wizard" novalidate>
+      <div class="progress" aria-hidden="false">
+        <div class="progress-meta"><span id="step-name">About you</span><span id="step-count">Step 1 of 5</span></div>
+        <div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div>
+      </div>
+      <div id="form-error" class="error-box hidden" role="alert" aria-live="assertive"></div>
+
+      <!-- Step 1 -->
+      <div class="card step" data-step="1" data-title="About you">
+        <h2>About you</h2>
+        <p class="muted">Height and weight are optional, but they make the estimate more accurate.</p>
+        <div class="q" data-q="age">
+          <label class="qlabel" for="age">How old are you?</label>
+          <div class="field-row"><input id="age" name="age" type="number" inputmode="numeric" min="10" max="60" step="1" required><span class="unit">years</span></div>
+        </div>
+        <div class="q" data-q="height">
+          <label class="qlabel" for="height_cm">Height</label>
+          <div class="field-row">
+            <span id="height-metric" class="field-row"><input id="height_cm" type="number" inputmode="decimal" min="100" max="220" step="0.1"><span class="unit">cm</span></span>
+            <span id="height-imperial" class="field-row hidden"><input id="height_ft" type="number" inputmode="numeric" min="3" max="7" aria-label="Feet"><span class="unit">ft</span><input id="height_in" type="number" inputmode="decimal" min="0" max="11.9" step="0.1" aria-label="Inches"><span class="unit">in</span></span>
+            <span class="seg" role="group" aria-label="Height unit"><button type="button" data-unit="height" data-val="cm" aria-pressed="true">cm</button><button type="button" data-unit="height" data-val="ftin" aria-pressed="false">ft/in</button></span>
+          </div>
+        </div>
+        <div class="q" data-q="weight">
+          <label class="qlabel" for="weight_val">Weight</label>
+          <div class="field-row">
+            <input id="weight_val" type="number" inputmode="decimal" min="20" max="550" step="0.1"><span class="unit" id="weight-unit-label">kg</span>
+            <span class="seg" role="group" aria-label="Weight unit"><button type="button" data-unit="weight" data-val="kg" aria-pressed="true">kg</button><button type="button" data-unit="weight" data-val="lb" aria-pressed="false">lb</button></span>
+          </div>
+          <p class="help" id="bmi-preview" aria-live="polite"></p>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="card step hidden" data-step="2" data-title="Your periods">
+        <h2>Your periods</h2>
+        <p class="muted">Think about your natural cycles, when you were not using hormonal birth control.</p>
+        <fieldset class="q" data-q="periods_started">
+          <legend>Have your periods started?</legend>
+          <div class="options">
+            <label class="opt"><input type="radio" name="periods_started" value="true"><span>Yes</span></label>
+            <label class="opt"><input type="radio" name="periods_started" value="false"><span>Not yet</span></label>
+          </div>
+        </fieldset>
+        <div id="cycle-questions">
+          <div class="q" data-q="menarche_age">
+            <label class="qlabel" for="menarche_age">How old were you when you had your first period?</label>
+            <div class="field-row"><input id="menarche_age" type="number" inputmode="numeric" min="7" max="20" step="1"><span class="unit">years</span></div>
+            <label class="check small"><input type="checkbox" id="menarche_unknown"> I don't remember</label>
+          </div>
+          <fieldset class="q" data-q="cycle_length">
+            <legend>How long is your cycle usually?</legend>
+            <p class="help">Count from the first day of one period to the first day of the next.</p>
+            <div class="options stack">
+              <label class="opt"><input type="radio" name="cycle_length" value="21_35"><span>21–35 days <small>About once a month</small></span></label>
+              <label class="opt"><input type="radio" name="cycle_length" value="lt21"><span>Shorter than 21 days <small>Periods come very often</small></span></label>
+              <label class="opt"><input type="radio" name="cycle_length" value="36_45"><span>36–45 days</span></label>
+              <label class="opt"><input type="radio" name="cycle_length" value="46_90"><span>46–90 days <small>Every 1½ to 3 months</small></span></label>
+              <label class="opt"><input type="radio" name="cycle_length" value="gt90"><span>More than 90 days <small>Or my periods have stopped</small></span></label>
+              <label class="opt"><input type="radio" name="cycle_length" value="unpredictable"><span>It changes a lot <small>Too unpredictable to say</small></span></label>
+              <label class="opt"><input type="radio" name="cycle_length" value="unknown"><span>I don't know</span></label>
+            </div>
+          </fieldset>
+          <fieldset class="q" data-q="gap_over_90_days">
+            <legend>In the last 2 years, have you gone more than 3 months (90 days) without a period, when not pregnant?</legend>
+            <div class="options">
+              <label class="opt"><input type="radio" name="gap_over_90_days" value="yes"><span>Yes</span></label>
+              <label class="opt"><input type="radio" name="gap_over_90_days" value="no"><span>No</span></label>
+              <label class="opt"><input type="radio" name="gap_over_90_days" value="unsure"><span>Not sure</span></label>
+            </div>
+          </fieldset>
+          <fieldset class="q" data-q="hormonal_contraception">
+            <legend>Are you currently using hormonal medicine that controls your periods?</legend>
+            <p class="help">For example the pill, a hormonal IUD, an implant or an injection.</p>
+            <div class="options">
+              <label class="opt"><input type="radio" name="hormonal_contraception" value="true"><span>Yes</span></label>
+              <label class="opt"><input type="radio" name="hormonal_contraception" value="false"><span>No</span></label>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="card step hidden" data-step="3" data-title="Skin, hair &amp; weight">
+        <h2>Skin, hair &amp; weight</h2>
+        <p class="muted">Rate hair growth as it grows naturally. If you remove it, think about how it grows back. Compare yourself with other women in your family. Rows you skip count as “None”.</p>
+        <fieldset class="q" data-q="hair">
+          <legend>How much dark, coarse hair grows in these areas?</legend>
+          <div class="hair-grid" id="hair-grid"></div>
+        </fieldset>
+        <fieldset class="q" data-q="acne">
+          <legend>Acne or pimples</legend>
+          <div class="options stack">
+            <label class="opt"><input type="radio" name="acne" value="0"><span>None, or only now and then</span></label>
+            <label class="opt"><input type="radio" name="acne" value="1"><span>Mild but frequent <small>A few pimples most weeks</small></span></label>
+            <label class="opt"><input type="radio" name="acne" value="2"><span>Moderate to severe, or persistent <small>Many or painful spots, on the face, chest or back, or lasting past your teens</small></span></label>
+          </div>
+        </fieldset>
+        <fieldset class="q" data-q="hair_loss">
+          <legend>Is the hair on your scalp thinning, or is your parting getting wider?</legend>
+          <div class="options" data-yns="hair_loss"></div>
+        </fieldset>
+        <fieldset class="q" data-q="skin_darkening">
+          <legend>Do you have dark, thick, velvety patches of skin?</legend>
+          <p class="help">Usually on the back of the neck, in the armpits or under the breasts.</p>
+          <div class="options" data-yns="skin_darkening"></div>
+        </fieldset>
+        <fieldset class="q" data-q="weight_gain">
+          <legend>Have you gained weight quickly, or found it very hard to lose weight?</legend>
+          <div class="options" data-yns="weight_gain"></div>
+        </fieldset>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="card step hidden" data-step="4" data-title="Lifestyle &amp; wellbeing">
+        <h2>Lifestyle &amp; wellbeing</h2>
+        <p class="muted">These answers personalise your advice. They do not change your risk score (see “About”).</p>
+        <div class="q" data-q="fast_food_per_week">
+          <label class="qlabel" for="fast_food_per_week">How many times a week do you eat fast food or outside food?</label>
+          <div class="field-row"><input id="fast_food_per_week" type="number" inputmode="numeric" min="0" max="21" step="1"><span class="unit">times a week</span></div>
+        </div>
+        <fieldset class="q" data-q="exercise_days_per_week">
+          <legend>On how many days a week are you active for at least 30 minutes?</legend>
+          <div class="options" id="exercise-options"></div>
+        </fieldset>
+        <fieldset class="q" data-q="fatigue">
+          <legend>Do you feel tired most of the time?</legend>
+          <div class="options" data-yns="fatigue"></div>
+        </fieldset>
+        <fieldset class="q" data-q="mood_swings">
+          <legend>Do you have mood swings more often than usual?</legend>
+          <div class="options" data-yns="mood_swings"></div>
+        </fieldset>
+        <fieldset class="q" data-q="conception_difficulty">
+          <legend>Have you tried to get pregnant for 12 months or more without success?</legend>
+          <div class="options">
+            <label class="opt"><input type="radio" name="conception_difficulty" value="yes"><span>Yes</span></label>
+            <label class="opt"><input type="radio" name="conception_difficulty" value="no"><span>No</span></label>
+            <label class="opt"><input type="radio" name="conception_difficulty" value="not_applicable"><span>Not applicable</span></label>
+          </div>
+        </fieldset>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="card step hidden" data-step="5" data-title="Health history">
+        <h2>Health history</h2>
+        <fieldset class="q" data-q="family_history">
+          <legend>Does your mother or a sister have PCOS, very irregular periods, or type 2 diabetes?</legend>
+          <div class="options">
+            <label class="opt"><input type="radio" name="family_history" value="yes"><span>Yes</span></label>
+            <label class="opt"><input type="radio" name="family_history" value="no"><span>No</span></label>
+            <label class="opt"><input type="radio" name="family_history" value="unsure"><span>Not sure</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="q" data-q="rapid_virilization">
+          <legend>In the last few months, have you noticed any of these changing quickly: hair growth getting much worse, a deeper voice, or fast muscle gain?</legend>
+          <div class="options">
+            <label class="opt"><input type="radio" name="rapid_virilization" value="true"><span>Yes</span></label>
+            <label class="opt"><input type="radio" name="rapid_virilization" value="false"><span>No</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="q" data-q="thyroid_or_prolactin">
+          <legend>Has a doctor ever told you that you have a thyroid problem or high prolactin?</legend>
+          <div class="options">
+            <label class="opt"><input type="radio" name="thyroid_or_prolactin" value="true"><span>Yes</span></label>
+            <label class="opt"><input type="radio" name="thyroid_or_prolactin" value="false"><span>No</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="q hidden" data-q="possibly_pregnant" id="q-pregnant">
+          <legend>Your periods have been absent for a long time. Is there any chance you could be pregnant?</legend>
+          <div class="options">
+            <label class="opt"><input type="radio" name="possibly_pregnant" value="no"><span>No</span></label>
+            <label class="opt"><input type="radio" name="possibly_pregnant" value="yes"><span>Yes, or maybe</span></label>
+            <label class="opt"><input type="radio" name="possibly_pregnant" value="not_applicable"><span>Prefer not to say</span></label>
+          </div>
+        </fieldset>
+        <div class="q hidden" id="q-store">
+          <label class="check"><input type="checkbox" id="store"> <span>Keep my answers anonymously to help improve this tool. No name, contact details or IP address are stored.</span></label>
+        </div>
+        <p class="notice small">By pressing “See my result” you confirm that you understand this is an educational screening tool, not a medical diagnosis.</p>
+      </div>
+
+      <div class="actions">
+        <button type="button" class="btn btn-ghost" id="btn-back">Back</button>
+        <button type="button" class="btn btn-primary" id="btn-next">Next</button>
+        <button type="submit" class="btn btn-primary hidden" id="btn-submit">See my result</button>
+      </div>
+    </form>
+
+    <!-- Results -->
+    <div id="results" class="hidden" aria-live="polite" tabindex="-1"></div>
+  </section>
+
+  <!-- =========================================================== LEARN -->
+  <section id="view-learn" data-view="learn" class="hidden">
+    <h1>Understanding PCOS (PCOD)</h1>
+    <p class="lead muted">Plain-language facts based on the 2023 International Evidence-based Guideline for PCOS and WHO information.</p>
+
+    <div class="card">
+      <h2>What is PCOS?</h2>
+      <p>Polycystic ovary syndrome is a common, lifelong hormone condition. It affects about 1 in 10 women of reproductive age. It involves some combination of:</p>
+      <ul class="clean">
+        <li><strong>Irregular or absent ovulation</strong>, which shows up as irregular, infrequent or missing periods.</li>
+        <li><strong>Higher levels of androgens</strong> (“male-type” hormones that every woman has in small amounts), causing excess facial or body hair, acne or scalp hair thinning.</li>
+        <li><strong>Many small follicles on the ovaries</strong> on ultrasound (or a high AMH blood level) in adults. These are not harmful cysts and do not need surgery.</li>
+      </ul>
+      <p><strong>PCOS or PCOD?</strong> In India, “PCOD” is widely used for the same symptoms. International guidelines and most doctors use “PCOS”, because it affects the whole body: metabolism, skin, mood and fertility, not just the ovaries.</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h2>Common signs</h2>
+        <ul class="clean">
+          <li>Periods more than 35 days apart, unpredictable, or absent</li>
+          <li>Dark, coarse hair on the face, chest, belly or thighs</li>
+          <li>Persistent acne</li>
+          <li>Thinning hair on the scalp</li>
+          <li>Weight gain, or finding it hard to lose weight</li>
+          <li>Dark, velvety skin patches (a sign of insulin resistance)</li>
+          <li>Difficulty getting pregnant</li>
+          <li>Low mood, anxiety or tiredness</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>PCOS in teenagers</h2>
+        <p>Irregular periods are <strong>normal for the first year</strong> after the first period. Doctors use cut-offs based on the time since your first period:</p>
+        <ul class="clean">
+          <li>1–3 years after: cycles shorter than 21 or longer than 45 days</li>
+          <li>3+ years after: shorter than 21 or longer than 35 days</li>
+          <li>Any time after year 1: a single cycle longer than 90 days</li>
+          <li>No period at all by age 15</li>
+        </ul>
+        <p>Teens need <strong>both</strong> irregular cycles and signs of excess androgen to be diagnosed. Ultrasound is not used within 8 years of the first period. A teen with only one sign is “at risk” and should be checked again later.</p>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h2>How doctors diagnose it</h2>
+        <p>Adults are diagnosed when 2 of these 3 are present (the Rotterdam criteria), after other causes are ruled out:</p>
+        <ol class="clean">
+          <li>Irregular cycles or ovulation problems</li>
+          <li>Excess androgen: seen on the body (hair, acne, hair loss) or in blood tests</li>
+          <li>Polycystic ovaries on ultrasound, or a high AMH level</li>
+        </ol>
+        <p class="muted small">Doctors also check thyroid function, prolactin and 17-hydroxyprogesterone, because these conditions can look like PCOS.</p>
+      </div>
+      <div class="card">
+        <h2>Why early diagnosis matters</h2>
+        <ul class="clean">
+          <li>Several times higher risk of <strong>type 2 diabetes</strong> and diabetes in pregnancy, so regular screening helps</li>
+          <li>Higher risk of high cholesterol and blood pressure</li>
+          <li>Very infrequent periods can thicken the womb lining; treatment protects it</li>
+          <li>More anxiety, depression and eating difficulties, and support works</li>
+          <li>Fertility problems are treatable. Most women with PCOS can have children.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Managing PCOS</h2>
+      <div class="grid-3">
+        <div><h3>Healthy lifestyle</h3><p class="muted">Regular activity, balanced meals and good sleep improve insulin resistance, cycles and mood. With extra weight, losing 5–10% can restore ovulation. The aim is health, not a number on the scale.</p></div>
+        <div><h3>Medical treatment</h3><p class="muted">Depending on your goals, doctors may suggest the combined pill (cycles, acne, hair), metformin (metabolic health), letrozole (when trying to conceive), or anti-androgen and cosmetic treatments. Never self-medicate.</p></div>
+        <div><h3>Emotional wellbeing</h3><p class="muted">Feeling low, anxious or unhappy with your body is common with PCOS. Talking to a doctor, counsellor or trusted person really helps.</p></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>See a doctor soon if…</h2>
+      <ul class="clean">
+        <li>You have not had a period by age 15</li>
+        <li>You have gone 3 or more months without a period (and are not pregnant)</li>
+        <li>Your bleeding is very heavy, or lasts longer than 7 days</li>
+        <li>Hair growth is getting worse quickly, or your voice is deepening, as these need prompt checks</li>
+        <li>Your symptoms are affecting your confidence, studies, work or mood</li>
+      </ul>
+    </div>
+
+    <h2>Myths and facts</h2>
+    <details class="faq"><summary>“PCOS means I can't get pregnant.”</summary><p>False. Many women with PCOS conceive naturally. Others need help with ovulation, and treatments such as letrozole work well.</p></details>
+    <details class="faq"><summary>“Only overweight women get PCOS.”</summary><p>False. PCOS happens at every body size. Lean women can have it too, though extra weight can make symptoms worse.</p></details>
+    <details class="faq"><summary>“The cysts must be removed by surgery.”</summary><p>False. The “cysts” are small follicles (immature eggs), not harmful growths. PCOS is not treated by removing them.</p></details>
+    <details class="faq"><summary>“Irregular periods in my first year mean I have PCOS.”</summary><p>False. Irregular cycles are expected in the first year after the first period while the body matures.</p></details>
+    <details class="faq"><summary>“The pill cures PCOS.”</summary><p>Not quite. The pill manages symptoms such as irregular bleeding, acne and hair growth. PCOS is lifelong, but it is very manageable.</p></details>
+  </section>
+
+  <!-- =========================================================== MODEL -->
+  <section id="view-model" data-view="model" class="hidden">
+    <h1>About the model</h1>
+    <p class="lead muted">How the screening works, the data it learned from, and how accurate it is, including its limits.</p>
+    <div id="model-content"><p class="muted">Loading…</p></div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Educational use only.</strong> PCOS Early Check does not diagnose, treat or replace a doctor. If you are worried about your health, please see a qualified healthcare professional.</p>
+    <p>Sources: <a href="https://www.who.int/news-room/fact-sheets/detail/polycystic-ovary-syndrome" rel="noopener noreferrer" target="_blank">WHO PCOS fact sheet</a> · <a href="https://www.monash.edu/medicine/mchri/pcos/guideline" rel="noopener noreferrer" target="_blank">2023 International Evidence-based PCOS Guideline</a> · <a href="https://link.springer.com/article/10.1186/s12916-025-03901-w" rel="noopener noreferrer" target="_blank">Adolescent PCOS recommendations (BMC Medicine, 2025)</a></p>
+  </div>
+</footer>
+</body>
+</html>

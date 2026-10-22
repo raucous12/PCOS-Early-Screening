@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+
+# Data: raw third-party datasets are downloaded with scripts/download_data.py
+# (their licences do not allow us to redistribute them); processed data is regenerated.
+data/raw/*
+!data/raw/README.md
+data/processed/
+data/*.sqlite3
+
+# Logs and local tooling
+reports/*.log
+.claude/
+node_modules/
+
+# Office lock files
+~$*

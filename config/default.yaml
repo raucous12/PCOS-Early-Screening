@@ -1,0 +1,67 @@
+# Default configuration for the PCOS early-screening pipeline.
+# Every path is relative to the project root unless absolute. Any key can be
+# overridden from the CLI, e.g. `--set training.outer_repeats=3`.
+
+seed: 42
+
+paths:
+  raw_dir: data/raw
+  processed_dir: data/processed
+  model_dir: models
+  report_dir: reports
+  docs_dir: docs                # the auto-generated MODEL_CARD.md goes here
+
+sources:
+  kerala:
+    enabled: true
+    file: kerala/PCOS_data_without_infertility.xlsx
+    sheet: Full_new
+  survey_in_2018:
+    enabled: true
+    file: survey_in_2018/dataset1.csv
+  survey_mumbai:
+    enabled: true
+    file: survey_mumbai/allData.csv
+  survey_lifestyle:
+    enabled: true
+    file: survey_lifestyle/pcos_raw.csv
+
+# Source whose fixed effect is used at inference time. The Kerala cohort carries
+# clinician-confirmed labels from women attending gynaecology clinics.
+reference_source: kerala
+
+features:
+  overweight_bmi: 25.0          # WHO overweight cut-off used to harmonise BMI
+  fast_food_per_week: 3         # >= this many outside / fast-food meals per week
+  exercise_days_per_week: 3     # >= this many exercise days per week
+  # Features used by the risk model. Lifestyle (fast_food, regular_exercise) and
+  # wellbeing (fatigue, mood_swings) answers were dropped after the leave-one-source-out
+  # ablation: they did not replicate across populations, and exercise showed reverse
+  # causation (diagnosed women exercise more). The app still asks them, to tailor advice.
+  model_features: [age, bmi, overweight, irregular_cycle, weight_gain, excess_hair,
+                   acne, hair_loss, skin_darkening, conception_difficulty]
+
+training:
+  outer_folds: 5
+  outer_repeats: 5
+  inner_folds: 3
+  n_trials: 25                  # Optuna trials per inner search
+  n_jobs: -1
+  bootstrap: 1000               # bootstrap resamples for confidence intervals
+  # Candidate models; see pcos_screen/models.py for the search spaces.
+  models: [logreg, random_forest, hist_gb, lightgbm, xgboost, ensemble]
+  # Prefer a simpler model if its LOSO AUC is within this margin of the best.
+  simplicity_margin: 0.01
+  calibration: auto             # auto | sigmoid | isotonic | none
+
+thresholds:
+  low_band_sensitivity: 0.90    # below t_low we still catch >= 90% of PCOS cases
+  high_band_specificity: 0.80   # above t_high >= 80% of non-PCOS are excluded
+
+app:
+  host: 127.0.0.1
+  port: 8000
+
+storage:
+  enabled: false                # opt-in anonymous log of answers + score
+  sqlite_path: data/screenings.sqlite3
